@@ -45,4 +45,74 @@ public class PuzzleJava {
         System.out.println ("All names: " + Arrays.toString (array));
         return output;
     }
+
+    public void abc () {
+        char[] alphabet = "abcdefghijklmnopqrstuvwxyz".toCharArray();
+        Random random = new Random ();
+        //shuffling
+        for (int i = alphabet.length-1; i>0; i--) {
+            //generate a random index
+            int randomIndex = random.nextInt(i+1);
+
+            char temp = alphabet[i];
+            alphabet[i] = alphabet[randomIndex];
+            alphabet[randomIndex] = temp;
+        }
+
+        System.out.println ("First letter: " + alphabet[0]);
+
+        if ("aeiou".indexOf(alphabet[0])!= -1) {
+            System.out.println ("The first letter in the array is a vowel!!! Weeee!!");
+        }
+
+        System.out.println ("Last letter: " + alphabet[alphabet.length-1]);
+    }
+
+    public int[] randomArray () {
+        Random random = new Random();
+        int[] array = new int[10];
+
+        for (byte i = 0; i<array.length; i++) {
+            int number = random.nextInt(45) + 56;
+            array[i] = number;
+        }
+        return array;
+    }
+
+    public int[] randomArray2 () {
+        Random random = new Random();
+        int[] array = new int[10];
+        int min, max;
+
+        for (byte i = 0; i<array.length; i++) {
+            int number = random.nextInt(45) + 56;
+            array[i] = number;
+        }
+        Arrays.sort(array);
+        return array;
+    }
+
+    public String randomString () {
+        String alphabet = "abcdefghijklmnopqrstuvwxyz";
+        String randomStr = "";
+
+        Random random = new Random();
+
+        for (byte i = 0; i<5; i++) {
+            int index = random.nextInt(26);
+            randomStr += alphabet.charAt(index);
+        }
+
+        return randomStr;
+    }
+
+    public void strArray () {
+        String[] array = new String[10];
+        
+        for (byte i=0; i<10; i++) {
+            array[i] = randomString();
+        }
+
+        System.out.println (Arrays.toString(array));
+    }
 }
