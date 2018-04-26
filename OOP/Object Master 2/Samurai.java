@@ -3,7 +3,7 @@ public class Samurai extends Human {
     private static int samuraiAmount = 0;
 
     public Samurai () {
-        health = 200;
+        setHealth(200);
         samuraiAmount++;
     }
 
