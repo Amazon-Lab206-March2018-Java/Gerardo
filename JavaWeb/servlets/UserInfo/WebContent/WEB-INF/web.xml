@@ -1,0 +1,10 @@
+<web-app>
+	<servlet>
+		<servlet-name>info</servlet-name>
+		<servlet-class>com.gerardo.web.Info</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>info</servlet-name>
+		<url-pattern>/</url-pattern>
+	</servlet-mapping>
+</web-app>
