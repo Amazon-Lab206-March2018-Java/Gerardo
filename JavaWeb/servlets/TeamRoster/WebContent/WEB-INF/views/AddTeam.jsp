@@ -12,7 +12,7 @@
     <p>Create a new Team</p>
     <form action="add_team" method="post">
         <label for="teamName">Team Name: </label>
-        <input type="text" value="teamName">
+        <input type="text" name="teamName">
         <input type="submit" value="Create">
     </form>
 </body>

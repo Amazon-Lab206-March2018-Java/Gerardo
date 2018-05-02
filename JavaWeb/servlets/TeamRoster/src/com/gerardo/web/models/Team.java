@@ -23,17 +23,21 @@ public class Team {
 	public ArrayList<Player> getPlayers() {
 		return players;
 	}
-
-	public void setPlayers(ArrayList<Player> players) {
-		this.players = players;
-	}
 	
-	public int getPlayerAmount () {
+	public int getTeamSize () {
 		return players.size();
 	}
 	
 	public Player getPlayer (int index) {
 		return players.get(index);
+	}
+	
+	public void addPlayer (Player player) {
+		players.add(player);
+	}
+	
+	public void removePlayer (int index) {
+		players.remove(index);
 	}
 	
 }

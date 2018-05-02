@@ -23,11 +23,15 @@
                 <th>Action</th>
             </thead>
             <tbody>
-                <c:forEach var = "i" begin = "0" end = "${roster.getRosterSize()}">
-                    <tr><c:out value = "${roster.getTeam(i).getTeamName()}"/></tr>
-                    <tr><c:out value = "${roster.getTeam(i).getPlayerAmount()}"/></tr>
-                    <tr><a href='teams?id=<c:out value="${ i }"/>'>Details</a> <a href='delete?id=<c:out value="${ i }"/>'>Delete</a></tr>
-                </c:forEach>
+            	<c:if test = "${roster.getRosterSize() != 0}">
+                    <c:forEach var = "i" begin = "0" end = "${roster.getRosterSize()-1}">
+                        <tr>
+                            <td><c:out value = "${roster.getTeam(i).getTeamName()}"/></td>
+                            <td><c:out value = "${roster.getTeam(i).getTeamSize()}"/></td>
+                            <td><a href='teams?id=<c:out value="${ i }"/>'>Details</a> <a href='delete_team?id=<c:out value="${ i }"/>'>Delete</a></td>
+                        </tr>
+                    </c:forEach>
+                </c:if>
             </tbody>
         </table>
     </div>

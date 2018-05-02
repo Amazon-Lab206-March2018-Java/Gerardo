@@ -33,6 +33,8 @@ public class Home extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		HttpSession session = request.getSession();
+		
+		//if there is no team roster stored in session it will create one
 		if (session.getAttribute("roster") == null) {
 			Roster roster = new Roster();
 			session.setAttribute("roster", roster);

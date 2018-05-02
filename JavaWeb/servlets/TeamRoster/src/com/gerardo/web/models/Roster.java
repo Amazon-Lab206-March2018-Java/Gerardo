@@ -20,4 +20,12 @@ public class Roster {
 	public int getRosterSize () {
 		return teamList.size();
 	}
+	
+	public void addTeam (Team newTeam) {
+		teamList.add(newTeam);
+	}
+	
+	public void removeTeam (int index) {
+		teamList.remove(index);
+	}
 }

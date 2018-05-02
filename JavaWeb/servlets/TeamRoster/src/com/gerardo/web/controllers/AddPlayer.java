@@ -1,7 +1,6 @@
 package com.gerardo.web.controllers;
 
 import java.io.IOException;
-import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -11,22 +10,20 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.gerardo.web.models.Roster;
+import com.gerardo.web.models.Player;
 import com.gerardo.web.models.Team;
 
-
-
 /**
- * Servlet implementation class Teams
+ * Servlet implementation class AddPlayer
  */
-@WebServlet("/teams")
-public class Teams extends HttpServlet {
+@WebServlet("/add_player")
+public class AddPlayer extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public Teams() {
+    public AddPlayer() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -36,21 +33,8 @@ public class Teams extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		
-		if (request.getParameter("id")==null) {
-			RequestDispatcher view = request.getRequestDispatcher("/WEB-INF/views/AddTeam.jsp");
-			view.forward(request, response);
-		} else {
-			int id = Integer.parseInt( request.getParameter("id") );
-			HttpSession session = request.getSession();
-			
-			//pulls the team with id 'id' from the roster of teams (roster holds an arraylist and id is the index of a team in the list)
-			session.setAttribute("id", id);
-			session.setAttribute("team", ( (Roster) session.getAttribute("roster") ).getTeam(id) );
-			
-			RequestDispatcher view = request.getRequestDispatcher("/WEB-INF/views/ShowTeam.jsp");
-			view.forward(request, response);
-		}
+		RequestDispatcher view = request.getRequestDispatcher("/WEB-INF/views/AddPlayer.jsp");
+		view.forward(request, response);
 	}
 
 	/**
@@ -58,7 +42,19 @@ public class Teams extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		doGet(request, response);
+		HttpSession session = request.getSession();
+		Team team = (Team) session.getAttribute("team");
+		String firstName = request.getParameter("firstName");
+		String lastName = request.getParameter("lastName");
+		int age = Integer.parseInt( request.getParameter("age") );
+		Player newPlayer = new Player (firstName, lastName, age);
+		
+		team.addPlayer( newPlayer );
+		
+		int teamID = (Integer) session.getAttribute("id");
+		
+		response.sendRedirect("/TeamRoster/teams?id="+teamID);
+		
 	}
 
 }
