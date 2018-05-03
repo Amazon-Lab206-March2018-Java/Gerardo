@@ -1,11 +1,12 @@
 @charset "ISO-8859-1";
 
 #wrapper {
-    max-width: 50%;
+    max-width: 100%;
     text-align: center;
 }
-
 #content div {
+	vertical-align: top;
     display: inline-block;
-    max-width: 25%;
+    width: 20rem;
+    height: 10rem;
 }
