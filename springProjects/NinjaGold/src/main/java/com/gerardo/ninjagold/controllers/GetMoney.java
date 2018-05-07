@@ -28,6 +28,10 @@ public class GetMoney {
 		
 		int randomNumber = 0;
 		
+		if ( moneySource.toString() == "farm".toString()) {
+			System.out.println("IF DOES WORKS!");
+		}
+		
 		switch (moneySource) {
 			case "farm":
 				randomNumber = random.nextInt(11)+10;

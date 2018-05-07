@@ -1,0 +1,16 @@
+body {
+	padding: 20px;
+}
+
+#nav ul {
+    display: inline-block;
+    list-style: none;
+    margin-right: 0px;
+    margin-left: auto;
+}
+#nav h1 {
+    display: inline-block;
+}
+#nav ul li {
+    display: inline-block;
+}
