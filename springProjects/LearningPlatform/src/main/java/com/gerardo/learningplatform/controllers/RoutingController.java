@@ -20,10 +20,12 @@ public class RoutingController {
 	}
 
 	@RequestMapping ("m/{chapter}/0553/{lessonNumber}")
-	public String lesson(@PathVariable ("chapter") String chapter,
+	public String lesson(@PathVariable ("chapter") int chapter,
 						 @PathVariable ("lessonNumber") String lessonNumber,
 						 Model model)
 	{
+		System.out.println("PathVariable can store into int variables: "+chapter);
+		
 		switch (lessonNumber) {
 			case "0733":
 				model.addAttribute("content", "Setting up your servers placeholder");
