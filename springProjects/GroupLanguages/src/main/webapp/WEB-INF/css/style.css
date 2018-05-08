@@ -1,0 +1,15 @@
+#wrapper {
+	padding: 20px;
+}
+label {
+	width: 200px;
+}
+span {
+	display: inline-block;
+}
+.red {
+	color: red;
+}
+input[type=submit] {
+	display: block;
+}
