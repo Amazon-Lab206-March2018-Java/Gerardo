@@ -29,8 +29,6 @@ public class Tag {
 	private Date createdAt;
 	private Date updatedAt;
 	
-	@NotNull
-	@Size (min=4)
 	private String subject;
 	
 	@ManyToMany (fetch = FetchType.LAZY)
@@ -45,6 +43,50 @@ public class Tag {
 		
 	}
 	
+	public Tag (String subject) {
+		this.subject = subject;
+	}
+	
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public Date getCreatedAt() {
+		return createdAt;
+	}
+
+	public void setCreatedAt(Date createdAt) {
+		this.createdAt = createdAt;
+	}
+
+	public Date getUpdatedAt() {
+		return updatedAt;
+	}
+
+	public void setUpdatedAt(Date updatedAt) {
+		this.updatedAt = updatedAt;
+	}
+
+	public String getSubject() {
+		return subject;
+	}
+
+	public void setSubject(String subject) {
+		this.subject = subject;
+	}
+
+	public List<Question> getQuestions() {
+		return questions;
+	}
+
+	public void setQuestions(List<Question> questions) {
+		this.questions = questions;
+	}
+
 	@PrePersist
 	public void onCreate () {
 		createdAt = new Date();

@@ -16,6 +16,28 @@
 <body>
 	<div id="wrapper">
 		<h1>Questions Dashboard</h1>
+		<table class="u-full-width">
+			<thead>
+				<tr>
+					<th>Question</th>
+					<th>Tags</th>
+				</tr>
+			</thead>
+			<tbody>
+				<c:forEach items = "${question_list}" var = "question">
+				<tr>
+					<td><a href="/questions/${question.id}">${question.question}</a></td>
+					<td>
+						<p>
+						<c:forEach items = "${question.tags}" var="tag">
+							<span>${tag.subject} </span> 
+						</c:forEach>
+						</p>
+					</td>
+				</tr>
+				</c:forEach>
+			</tbody>
+		</table>
 		<a href="/questions/new">New Question</a>
 	</div>
 </body>
