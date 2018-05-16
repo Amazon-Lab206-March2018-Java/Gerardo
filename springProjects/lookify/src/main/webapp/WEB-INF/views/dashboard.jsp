@@ -15,14 +15,14 @@
 </head>
 <body>
 	<div id="wrapper">
-		<navigation>
+		<div id="navigation">
 			<a href="/songs/new">Add new</a>
-			<a href="/top_songs">Top Songs</a>
+			<a href="/search/topTen">Top Songs</a>
 			<form action="/search">
 				<input type="text" name="search_term">
 				<input type="submit" value="Search Artists">
 			</form>
-		</navigation>
+		</div>
 		<table class="u-full-width">
 			<thead>
 				<tr>
@@ -32,10 +32,10 @@
 				</tr>
 			</thead>
 			<tbody>
-				<c:forEach items="songs" var="song">
+				<c:forEach items="${songs}" var="song">
 				<tr>
-					<td><a href="/song/${song.id}">"${song.name}"</a></td>
-					<td>"${song.rating}"</td>
+					<td><a href="/songs/${song.id}">${song.name}</a></td>
+					<td>${song.rating}</td>
 					<td><a href="/delete/${song.id}">Delete</a></td>
 				</tr>
 			</c:forEach>

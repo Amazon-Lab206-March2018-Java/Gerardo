@@ -19,9 +19,7 @@ public class IndexController {
 	}
 	
 	@RequestMapping("/")
-	public String index(Model model) {
-		List<Song> songs = service.getAllSongs();
-		model.addAttribute("songs", songs);
+	public String index() {
 		return "views/index.jsp";
 	}
 

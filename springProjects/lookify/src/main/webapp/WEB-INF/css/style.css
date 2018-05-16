@@ -1,5 +1,16 @@
 @charset "ISO-8859-1";
 
+#navigation {
+	margin-bottom: 40px;
+}
 #wrapper {
 	padding: 20px;
+}
+#song_info p span {
+	display: inline-block;
+	width: 150px;
+}
+
+.red {
+	color: red;
 }
