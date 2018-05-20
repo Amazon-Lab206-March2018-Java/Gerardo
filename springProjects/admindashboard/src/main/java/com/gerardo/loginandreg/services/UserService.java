@@ -1,13 +1,14 @@
 package com.gerardo.loginandreg.services;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Date;
-
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServletRequest;
+import java.util.List;
 
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import com.gerardo.loginandreg.models.Role;
 import com.gerardo.loginandreg.models.User;
 import com.gerardo.loginandreg.repositories.RoleRepository;
 import com.gerardo.loginandreg.repositories.UserRepository;
@@ -42,18 +43,32 @@ public class UserService {
 		password = passEncoder.encode(password);
 		user.setPassword(password);
 		
-		user.setRoles(roleRepo.findByName("ROLE_ADMIN"));
+		user.setRoles( roleRepo.findAll() );
 		
 		return userRepo.save(user);
+	}
+	
+	public void saveUser (User user) {
+		userRepo.save(user);
 	}
 	
 	public User findByEmail (String email) {
 		return userRepo.findByEmail(email);
 	}
 	
+	public User findById (Long id) {
+		return userRepo.findById(id).get();
+	}
+	
+	public void deleteUser (Long id) {
+		userRepo.deleteById(id);
+	}
+	
 	public void setLastSignInDate (Date date, Long id) {
 		userRepo.setLastSignIn(date, id);
 	}
 	
-	
+	public List<User> getAllUsers () {
+		return userRepo.findAll();
+	}
 }

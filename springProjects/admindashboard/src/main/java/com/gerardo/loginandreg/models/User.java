@@ -1,5 +1,6 @@
 package com.gerardo.loginandreg.models;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -51,6 +52,10 @@ public class User {
     private List<Role> roles;
     
     public User() {
+    }
+    
+    public void addRole (Role e) {
+    	roles.add(e);
     }
     
     @PrePersist
